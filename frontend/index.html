@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerCast — Career Intelligence</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">C</span><span><b>CareerCast</b><small>AI-POWERED CAREER INTELLIGENCE</small></span></div>
+      <div class="nav active">◈ &nbsp; Profile & Resume</div>
+      <div class="nav">◎ &nbsp; Career Intelligence <small>Coming in a later milestone</small></div>
+      <div class="nav">▤ &nbsp; Learning Path <small>Coming in a later milestone</small></div>
+      <div class="sidebar-note">Build your profile once. Keep your skills and resume information in one place.</div>
+    </aside>
+    <section class="main">
+      <header class="topbar"><span>CareerCast / Account</span><button id="logoutBtn" class="quiet hidden">Sign out</button></header>
+      <section id="authPanel" class="auth-layout">
+        <div class="intro"><span class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</span><h1>Make your experience<br>work for your future.</h1><p>Sign in to manage your career profile and extract skills from your resume.</p><div class="mini-stat"><b>01</b><span>Secure account<br><small>Powered by Supabase Auth</small></span></div><div class="mini-stat"><b>02</b><span>Resume intelligence<br><small>Skills, roles and education signals</small></span></div></div>
+        <form id="authForm" class="card auth-card">
+          <div class="switch"><button type="button" id="signinTab" class="selected">Sign in</button><button type="button" id="signupTab">Create account</button></div>
+          <h2 id="authTitle">Welcome back</h2><p id="authSubtitle" class="muted">Sign in to continue to your workspace.</p>
+          <label>Email address<input id="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+          <label>Password<input id="password" type="password" autocomplete="current-password" minlength="8" required placeholder="At least 8 characters"></label>
+          <label id="nameWrap" class="hidden">Full name<input id="fullName" type="text" autocomplete="name" maxlength="160" placeholder="Your name"></label>
+          <button id="authSubmit" class="primary" type="submit">Sign in</button>
+          <p id="authMessage" class="message" role="status"></p>
+        </form>
+      </section>
+      <section id="workspace" class="hidden">
+        <div class="welcome"><div><span class="eyebrow">YOUR WORKSPACE</span><h1>Welcome, <span id="welcomeName">there</span>.</h1><p>Keep your profile accurate so future recommendations have useful information.</p></div><div class="avatar" id="avatar">C</div></div>
+        <div class="grid">
+          <form id="profileForm" class="card">
+            <div class="section-heading"><div><span class="eyebrow">01 / PROFILE</span><h2>Your profile</h2></div><span class="pill">Editable</span></div>
+            <label>Full name<input id="profileName" maxlength="160" placeholder="Your full name"></label>
+            <label>Professional headline<input id="headline" maxlength="240" placeholder="e.g. B.Tech CSE student | AI/ML"></label>
+            <label>Location<input id="location" maxlength="160" placeholder="City, country"></label>
+            <label>Education <span class="hint">One item per line</span><textarea id="education" rows="3" placeholder="B.Tech Computer Science, College, 2028"></textarea></label>
+            <label>Skills <span class="hint">Comma-separated</span><textarea id="skills" rows="3" placeholder="Python, SQL, FastAPI"></textarea></label>
+            <label>Certifications <span class="hint">One item per line</span><textarea id="certifications" rows="2" placeholder="Certification name"></textarea></label>
+            <label>Work experience <span class="hint">One item per line</span><textarea id="experience" rows="3" placeholder="Role — company — dates"></textarea></label>
+            <button class="primary" type="submit">Save profile</button><p id="profileMessage" class="message" role="status"></p>
+          </form>
+          <div class="stack">
+            <form id="resumeForm" class="card">
+              <div class="section-heading"><div><span class="eyebrow">02 / NLP</span><h2>Resume parser</h2></div><span class="pill purple">PDF / DOCX</span></div>
+              <p class="muted">Upload a text-based resume. The parser extracts skill keywords, likely job titles, education signals and date ranges.</p>
+              <label class="upload"><input id="resumeFile" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required><span class="upload-icon">↑</span><b>Choose your resume</b><small>Maximum 8 MB · PDF or DOCX</small></label>
+              <button class="primary" type="submit">Upload & parse resume</button><p id="resumeMessage" class="message" role="status"></p>
+              <div id="parseResult" class="parse-result hidden"></div>
+            </form>
+            <section class="card"><div class="section-heading"><div><span class="eyebrow">03 / HISTORY</span><h2>Uploaded resumes</h2></div><button id="refreshResumes" class="quiet" type="button">Refresh</button></div><div id="resumeList" class="resume-list muted">No resumes loaded yet.</div></section>
+          </div>
+        </div>
+      </section>
+      <footer>CareerCast · Phase 1 · Profile and resume parsing</footer>
+    </section>
+  </main>
+</body>
+</html>

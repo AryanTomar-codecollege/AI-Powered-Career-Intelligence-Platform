@@ -1,0 +1,40 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ==================================================
+# FRONTEND CONFIGURATION
+# ==================================================
+# Contains local Supabase configuration
+frontend/config.js
+
+# Keep the example configuration in GitHub
+!frontend/config.js.example
+
+# Runtime/database/uploads
+*.db
+*.sqlite
+*.sqlite3
+uploads/
+storage/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+careercast.db
