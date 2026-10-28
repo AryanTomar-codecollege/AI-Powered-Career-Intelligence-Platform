@@ -1,4 +1,4 @@
-# CareerCast — Phase 1
+# CareerCast
 
 This starter implements only the first requested modules: **Supabase authentication, structured user profile, and NLP resume parsing**. It follows the PDF's Week 1–2 emphasis on a validated profile form and a spaCy-based resume parser for skills, roles, and education signals. It does **not** implement career prediction yet.
 
